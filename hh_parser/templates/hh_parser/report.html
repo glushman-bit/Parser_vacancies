@@ -1,0 +1,45 @@
+{% extends "hh_parser/base.html" %}
+{% load hh_filters %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>{{ title }}</h2>
+
+    {% if rows %}
+        <table>
+            <thead>
+                <tr>
+                    {% for col in columns %}
+                        <th>{{ col.label }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in rows %}
+                    <tr>
+                        {% for col in columns %}
+                            {% with value=row|get_item:col.key %}
+                                <td>
+                                    {% if col.key == "website" %}
+                                        <a href="{{ value }}" target="_blank" rel="noopener">{{ value }}</a>
+                                    {% elif col.key == "salary_from" or col.key == "avg_salary" %}
+                                        {{ value|format_salary }}
+                                    {% else %}
+                                        {{ value }}
+                                    {% endif %}
+                                </td>
+                            {% endwith %}
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="hint">Данные отсутствуют. Загрузите данные или тестовые данные.</p>
+    {% endif %}
+
+    <p><a class="btn btn-secondary" href="{% url 'index' %}">← В главное меню</a></p>
+</div>
+{% endblock %}

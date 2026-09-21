@@ -1,0 +1,55 @@
+{% extends "hh_parser/base.html" %}
+{% load hh_filters %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>{{ title }}</h2>
+
+    <form class="search" method="get" action="{% url 'report_search' %}">
+        <input type="text" name="keyword" value="{{ keyword }}" placeholder="Введите слово для поиска вакансий">
+        <button class="btn" type="submit">Найти</button>
+    </form>
+
+    {% if keyword %}
+        {% if rows %}
+            <table>
+                <thead>
+                    <tr>
+                        {% for col in columns %}
+                            <th>{{ col.label }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in rows %}
+                        <tr>
+                            {% for col in columns %}
+                                {% with value=row|get_item:col.key %}
+                                    <td>
+                                        {% if col.key == "salary_from" or col.key == "avg_salary" %}
+                                            {{ value|format_salary }}
+                                        {% else %}
+                                            {{ value }}
+                                        {% endif %}
+                                    </td>
+                                {% endwith %}
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p class="hint">По запросу «{{ keyword }}» вакансии не найдены.</p>
+        {% endif %}
+    {% else %}
+        <p class="hint">По умолчанию выводится весь список вакансий: введите слово и нажмите «Найти».</p>
+        {% if rows|length == 0 %}
+        <p><a class="btn btn-secondary" href="{% url 'report_all_vacancies' %}">Показать весь список вакансий</a></p>
+        {% endif %}
+    {% endif %}
+
+    <p><a class="btn btn-secondary" href="{% url 'index' %}">← В главное меню</a></p>
+</div>
+{% endblock %}

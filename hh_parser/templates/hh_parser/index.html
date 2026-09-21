@@ -1,0 +1,44 @@
+{% extends "hh_parser/base.html" %}
+
+{% block title %}Главное меню{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>Вас приветствует менеджер по работе с базой данных</h2>
+    <p>Выберите действие:</p>
+    <ul class="menu">
+        <li>
+            <form action="{% url 'create_database' %}" method="post" style="display:inline">
+                {% csrf_token %}
+                <button class="btn" type="submit">1 — Создать базу данных</button>
+            </form>
+        </li>
+        <li>
+            <form action="{% url 'load_test_data' %}" method="post" style="display:inline">
+                {% csrf_token %}
+                <button class="btn" type="submit">2 — Загрузить тестовые данные</button>
+            </form>
+        </li>
+        <li>
+            <form action="{% url 'load_hh_data' %}" method="post" style="display:inline">
+                {% csrf_token %}
+                <button class="btn" type="submit">3 — Загрузить данные с HH.ru</button>
+            </form>
+        </li>
+        <li><a class="btn btn-secondary" href="{% url 'load_hh_data' %}">4 — Список компаний для загрузки</a></li>
+    </ul>
+</div>
+
+<div class="card">
+    <h2>Работа с базой данных</h2>
+    <ul class="menu">
+        <li><a class="btn" href="{% url 'report_companies_count' %}">1 — Список компаний и количество вакансий</a></li>
+        <li><a class="btn" href="{% url 'report_all_vacancies' %}">2 — Все вакансии</a></li>
+        <li><a class="btn" href="{% url 'report_avg_salary' %}">3 — Средняя зарплата по компаниям</a></li>
+        <li><a class="btn" href="{% url 'report_higher_salary' %}">4 — Вакансии с зарплатой выше средней</a></li>
+        <li><a class="btn" href="{% url 'report_search' %}">5 — Вакансии по ключевому слову</a></li>
+        <li><a class="btn btn-secondary" href="/api/companies/">REST API: компании</a></li>
+        <li><a class="btn btn-secondary" href="/api/vacancies/">REST API: вакансии</a></li>
+    </ul>
+</div>
+{% endblock %}

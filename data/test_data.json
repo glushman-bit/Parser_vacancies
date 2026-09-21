@@ -1,0 +1,347 @@
+{
+  "companies": [
+    {
+      "company_id": 1001,
+      "name": "Яндекс",
+      "website": "https://yandex.ru",
+      "vacancies": 5
+    },
+    {
+      "company_id": 1002,
+      "name": "VK",
+      "website": "https://vk.company",
+      "vacancies": 5
+    },
+    {
+      "company_id": 1003,
+      "name": "Ozon",
+      "website": "https://www.ozon.ru",
+      "vacancies": 5
+    },
+    {
+      "company_id": 1004,
+      "name": "Авито",
+      "website": "https://www.avito.ru",
+      "vacancies": 5
+    },
+    {
+      "company_id": 1005,
+      "name": "Т-Банк",
+      "website": "https://www.tbank.ru",
+      "vacancies": 5
+    },
+    {
+      "company_id": 1006,
+      "name": "Сбер",
+      "website": "https://www.sber.ru",
+      "vacancies": 5
+    }
+  ],
+  "vacancies": [
+    {
+      "company_id": 1001,
+      "vacancy_id": 20001,
+      "name": "Python Developer",
+      "published_at": "2026-08-20",
+      "salary_from": 180000,
+      "area": "Москва",
+      "type": "Полная занятость",
+      "website": "https://hh.ru/vacancy/20001"
+    },
+    {
+      "company_id": 1001,
+      "vacancy_id": 20002,
+      "name": "Backend Developer",
+      "published_at": "2026-08-18",
+      "salary_from": 200000,
+      "area": "Москва",
+      "type": "Полная занятость",
+      "website": "https://hh.ru/vacancy/20002"
+    },
+    {
+      "company_id": 1001,
+      "vacancy_id": 20003,
+      "name": "Data Analyst",
+      "published_at": "2026-08-15",
+      "salary_from": 160000,
+      "area": "Москва",
+      "type": "Полная занятость",
+      "website": "https://hh.ru/vacancy/20003"
+    },
+    {
+      "company_id": 1001,
+      "vacancy_id": 20004,
+      "name": "DevOps Engineer",
+      "published_at": "2026-08-12",
+      "salary_from": 230000,
+      "area": "Москва",
+      "type": "Полная занятость",
+      "website": "https://hh.ru/vacancy/20004"
+    },
+    {
+      "company_id": 1001,
+      "vacancy_id": 20005,
+      "name": "QA Engineer",
+      "published_at": "2026-08-10",
+      "salary_from": null,
+      "area": "Москва",
+      "type": "Полная занятость",
+      "website": "https://hh.ru/vacancy/20005"
+    },
+
+    {
+      "company_id": 1002,
+      "vacancy_id": 20101,
+      "name": "Python Developer",
+      "published_at": "2026-08-19",
+      "salary_from": 190000,
+      "area": "Москва",
+      "type": "Полная занятость",
+      "website": "https://hh.ru/vacancy/20101"
+    },
+    {
+      "company_id": 1002,
+      "vacancy_id": 20102,
+      "name": "Java Developer",
+      "published_at": "2026-08-17",
+      "salary_from": 210000,
+      "area": "Москва",
+      "type": "Полная занятость",
+      "website": "https://hh.ru/vacancy/20102"
+    },
+    {
+      "company_id": 1002,
+      "vacancy_id": 20103,
+      "name": "Frontend Developer",
+      "published_at": "2026-08-14",
+      "salary_from": 170000,
+      "area": "Санкт-Петербург",
+      "type": "Полная занятость",
+      "website": "https://hh.ru/vacancy/20103"
+    },
+    {
+      "company_id": 1002,
+      "vacancy_id": 20104,
+      "name": "Product Analyst",
+      "published_at": "2026-08-11",
+      "salary_from": 150000,
+      "area": "Москва",
+      "type": "Полная занятость",
+      "website": "https://hh.ru/vacancy/20104"
+    },
+    {
+      "company_id": 1002,
+      "vacancy_id": 20105,
+      "name": "QA Automation Engineer",
+      "published_at": "2026-08-09",
+      "salary_from": null,
+      "area": "Москва",
+      "type": "Полная занятость",
+      "website": "https://hh.ru/vacancy/20105"
+    },
+
+    {
+      "company_id": 1003,
+      "vacancy_id": 20201,
+      "name": "Python Backend Developer",
+      "published_at": "2026-08-21",
+      "salary_from": 220000,
+      "area": "Москва",
+      "type": "Полная занятость",
+      "website": "https://hh.ru/vacancy/20201"
+    },
+    {
+      "company_id": 1003,
+      "vacancy_id": 20202,
+      "name": "Data Engineer",
+      "published_at": "2026-08-18",
+      "salary_from": 240000,
+      "area": "Москва",
+      "type": "Полная занятость",
+      "website": "https://hh.ru/vacancy/20202"
+    },
+    {
+      "company_id": 1003,
+      "vacancy_id": 20203,
+      "name": "Java Developer",
+      "published_at": "2026-08-16",
+      "salary_from": 210000,
+      "area": "Санкт-Петербург",
+      "type": "Полная занятость",
+      "website": "https://hh.ru/vacancy/20203"
+    },
+    {
+      "company_id": 1003,
+      "vacancy_id": 20204,
+      "name": "DevOps Engineer",
+      "published_at": "2026-08-13",
+      "salary_from": 250000,
+      "area": "Москва",
+      "type": "Полная занятость",
+      "website": "https://hh.ru/vacancy/20204"
+    },
+    {
+      "company_id": 1003,
+      "vacancy_id": 20205,
+      "name": "QA Engineer",
+      "published_at": "2026-08-08",
+      "salary_from": 140000,
+      "area": "Москва",
+      "type": "Полная занятость",
+      "website": "https://hh.ru/vacancy/20205"
+    },
+
+    {
+      "company_id": 1004,
+      "vacancy_id": 20301,
+      "name": "Backend Developer",
+      "published_at": "2026-08-20",
+      "salary_from": 195000,
+      "area": "Москва",
+      "type": "Полная занятость",
+      "website": "https://hh.ru/vacancy/20301"
+    },
+    {
+      "company_id": 1004,
+      "vacancy_id": 20302,
+      "name": "Python Developer",
+      "published_at": "2026-08-17",
+      "salary_from": 185000,
+      "area": "Санкт-Петербург",
+      "type": "Полная занятость",
+      "website": "https://hh.ru/vacancy/20302"
+    },
+    {
+      "company_id": 1004,
+      "vacancy_id": 20303,
+      "name": "Frontend Developer",
+      "published_at": "2026-08-15",
+      "salary_from": 165000,
+      "area": "Москва",
+      "type": "Полная занятость",
+      "website": "https://hh.ru/vacancy/20303"
+    },
+    {
+      "company_id": 1004,
+      "vacancy_id": 20304,
+      "name": "UX/UI Designer",
+      "published_at": "2026-08-12",
+      "salary_from": 145000,
+      "area": "Москва",
+      "type": "Полная занятость",
+      "website": "https://hh.ru/vacancy/20304"
+    },
+    {
+      "company_id": 1004,
+      "vacancy_id": 20305,
+      "name": "Product Manager",
+      "published_at": "2026-08-07",
+      "salary_from": null,
+      "area": "Москва",
+      "type": "Полная занятость",
+      "website": "https://hh.ru/vacancy/20305"
+    },
+
+    {
+      "company_id": 1005,
+      "vacancy_id": 20401,
+      "name": "Python Developer",
+      "published_at": "2026-08-21",
+      "salary_from": 230000,
+      "area": "Москва",
+      "type": "Полная занятость",
+      "website": "https://hh.ru/vacancy/20401"
+    },
+    {
+      "company_id": 1005,
+      "vacancy_id": 20402,
+      "name": "Java Developer",
+      "published_at": "2026-08-19",
+      "salary_from": 240000,
+      "area": "Москва",
+      "type": "Полная занятость",
+      "website": "https://hh.ru/vacancy/20402"
+    },
+    {
+      "company_id": 1005,
+      "vacancy_id": 20403,
+      "name": "Data Analyst",
+      "published_at": "2026-08-16",
+      "salary_from": 175000,
+      "area": "Москва",
+      "type": "Полная занятость",
+      "website": "https://hh.ru/vacancy/20403"
+    },
+    {
+      "company_id": 1005,
+      "vacancy_id": 20404,
+      "name": "DevOps Engineer",
+      "published_at": "2026-08-14",
+      "salary_from": 260000,
+      "area": "Москва",
+      "type": "Полная занятость",
+      "website": "https://hh.ru/vacancy/20404"
+    },
+    {
+      "company_id": 1005,
+      "vacancy_id": 20405,
+      "name": "QA Automation Engineer",
+      "published_at": "2026-08-10",
+      "salary_from": null,
+      "area": "Москва",
+      "type": "Полная занятость",
+      "website": "https://hh.ru/vacancy/20405"
+    },
+
+    {
+      "company_id": 1006,
+      "vacancy_id": 20501,
+      "name": "Python Developer",
+      "published_at": "2026-08-20",
+      "salary_from": 170000,
+      "area": "Москва",
+      "type": "Полная занятость",
+      "website": "https://hh.ru/vacancy/20501"
+    },
+    {
+      "company_id": 1006,
+      "vacancy_id": 20502,
+      "name": "Java Developer",
+      "published_at": "2026-08-18",
+      "salary_from": 190000,
+      "area": "Москва",
+      "type": "Полная занятость",
+      "website": "https://hh.ru/vacancy/20502"
+    },
+    {
+      "company_id": 1006,
+      "vacancy_id": 20503,
+      "name": "Data Analyst",
+      "published_at": "2026-08-15",
+      "salary_from": 155000,
+      "area": "Москва",
+      "type": "Полная занятость",
+      "website": "https://hh.ru/vacancy/20503"
+    },
+    {
+      "company_id": 1006,
+      "vacancy_id": 20504,
+      "name": "DevOps Engineer",
+      "published_at": "2026-08-11",
+      "salary_from": 210000,
+      "area": "Москва",
+      "type": "Полная занятость",
+      "website": "https://hh.ru/vacancy/20504"
+    },
+    {
+      "company_id": 1006,
+      "vacancy_id": 20505,
+      "name": "System Administrator",
+      "published_at": "2026-08-06",
+      "salary_from": 130000,
+      "area": "Санкт-Петербург",
+      "type": "Полная занятость",
+      "website": "https://hh.ru/vacancy/20505"
+    }
+  ]
+}
