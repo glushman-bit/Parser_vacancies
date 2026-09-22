@@ -12,15 +12,24 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
+from hh_parser.utils.config import Config
+
 load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv("SECRET_KEY", "django-insecure-i=)8ife=9_a%4*t=y6cow-6^s=ya3k&$59wrd4a#07$-ox9ust")
+SECRET_KEY = os.getenv("SECRET_KEY")
+
+if not SECRET_KEY:
+    raise ValueError("SECRET_KEY not set")
 
 DEBUG = os.getenv("DEBUG", "True").lower() in {"true", "1", "yes"}
 
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "*").split(",")
+ALLOWED_HOSTS = [
+                    h.strip()
+                    for h in os.getenv("ALLOWED_HOSTS", "*").split(",")
+                    if h.strip()
+                ] or ["*"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -65,11 +74,11 @@ WSGI_APPLICATION = "config.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv("DATABASE_NAME", "headhunter"),
-        "HOST": os.getenv("POSTGRES_HOST", "localhost"),
-        "USER": os.getenv("POSTGRES_USER", "postgres"),
-        "PASSWORD": os.getenv("POSTGRES_PASSWORD", ""),
-        "PORT": os.getenv("POSTGRES_PORT", "5432"),
+        "NAME": Config.DATABASE_NAME,
+        "HOST": Config.POSTGRES_HOST,
+        "USER": Config.POSTGRES_USER,
+        "PASSWORD": Config.POSTGRES_PASSWORD,
+        "PORT": Config.POSTGRES_PORT,
     }
 }
 
