@@ -70,7 +70,10 @@ def load_hh_data(request):
 
 def report_companies_count(request):
     """Отчёт: компании и количество вакансий."""
-    columns = [{"key": "name", "label": "Компания"}, {"key": "vacancies", "label": "Количество вакансий"}]
+    columns = [
+        {"key": "name", "label": "Компания"},
+        {"key": "vacancies", "label": "Количество вакансий"}
+    ]
     rows = DBManager.get_companies_and_vacancies_count()
     return _render_report(request, "Компании и количество вакансий", columns, rows)
 

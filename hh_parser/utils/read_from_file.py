@@ -11,7 +11,11 @@ test_data_file = DATA_DIR / "test_data.json"
 def read_companies_from_file(file_path):
     """Чтение списка компаний из файла."""
     with open(file_path, "r", encoding="utf-8") as f:
-        return [line.strip() for line in f if line.strip()]
+        return [
+            line.strip()
+            for line in f
+            if line.strip()
+        ]
 
 
 def read_test_data(file_path):

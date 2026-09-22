@@ -6,7 +6,8 @@ from django.db import transaction
 from hh_parser.models import Company, Vacancy
 from hh_parser.services.api_hh import APIhh
 from hh_parser.utils.config import Config
-from hh_parser.utils.read_from_file import path_file, read_companies_from_file, read_test_data, test_data_file
+from hh_parser.utils.read_from_file import (
+    path_file, read_companies_from_file, read_test_data, test_data_file)
 
 REQUIRED_COMPANY_FIELDS = {
     "company_id",
