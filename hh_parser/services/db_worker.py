@@ -1,6 +1,6 @@
 from json import JSONDecodeError
 
-import psycopg2
+import psycopg
 from django.db import transaction
 
 from hh_parser.models import Company, Vacancy
@@ -44,7 +44,7 @@ class DBWorker:
         Таблицы создаются механизмом миграций Django (python manage.py migrate).
         """
         database_name = database_name or Config.DATABASE_NAME
-        conn = psycopg2.connect(**self.params)
+        conn = psycopg.connect(**self.params)
         conn.autocommit = True
 
         with conn.cursor() as cur:
