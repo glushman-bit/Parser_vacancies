@@ -49,7 +49,7 @@ jobs:
           script: |
             cd /var/www/parser_vacancies
             
-            IMAGE_TAG="${{ github.sha }}"
+            IMAGE_TAG="${{ github.event_name == 'workflow_dispatch' && inputs.image_tag || github.sha }}"
             
             if grep -q '^IMAGE_TAG=' .env; then
               sed -i "s/^IMAGE_TAG=.*/IMAGE_TAG=${IMAGE_TAG}/" .env
