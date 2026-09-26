@@ -26,6 +26,8 @@ deploy:
  - docker compose up -d --force-recreate nginx — пересоздаёт Nginx, чтобы он заново обнаружил web.
  - docker compose ps — показывает состояние контейнеров.
 
+==========================================================
+
 Проверка Web после Deploy:
 ```textmate
 script: |
@@ -126,3 +128,62 @@ recreate nginx
 готово
 ```
 Так мы не заставляем Nginx подключаться к приложению в момент, когда Gunicorn ещё запускается.
+
+==============================================
+
+```textmate
+script: |
+    cd /var/www/parser_vacancies
+    
+    IMAGE_TAG="${{ github.sha }}"
+    
+    if grep -q '^IMAGE_TAG=' .env; then
+      sed -i "s/^IMAGE_TAG=.*/IMAGE_TAG=${IMAGE_TAG}/" .env
+    else
+      echo "IMAGE_TAG=${IMAGE_TAG}" >> .env
+    fi
+    
+    docker compose pull web
+```
+
+Что здесь происходит
+
+GitHub Actions подставляет SHA текущего коммита:
+```
+IMAGE_TAG="${{ github.sha }}"
+```
+Например:
+```
+fae1386352d175de93ce43bf9624094647320284
+```
+Затем:
+```
+grep -q '^IMAGE_TAG=' .env
+```
+проверяет, есть ли уже IMAGE_TAG.
+
+Если есть:
+```
+IMAGE_TAG=старый_SHA
+```
+то:
+```
+sed -i ...
+```
+заменит только эту строку.
+
+Если строки нет:
+```
+echo ...
+```
+добавит её в конец .env.
+
+Таким образом, остальные переменные:
+```
+POSTGRES_HOST=db
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=...
+POSTGRES_NAME=headhunter_drf
+ALLOWED_HOSTS=...
+```
+останутся нетронутыми.
