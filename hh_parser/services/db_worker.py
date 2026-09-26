@@ -43,7 +43,7 @@ class DBWorker:
 
         Таблицы создаются механизмом миграций Django (python manage.py migrate).
         """
-        database_name = database_name or Config.DATABASE_NAME
+        database_name = database_name or Config.POSTGRES_NAME
         conn = psycopg.connect(**self.params)
         conn.autocommit = True
 

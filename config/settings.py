@@ -74,7 +74,7 @@ WSGI_APPLICATION = "config.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": Config.DATABASE_NAME,
+        "NAME": Config.POSTGRES_NAME,
         "HOST": Config.POSTGRES_HOST,
         "USER": Config.POSTGRES_USER,
         "PASSWORD": Config.POSTGRES_PASSWORD,
@@ -98,6 +98,7 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = "static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 STATICFILES_DIRS = [BASE_DIR / "static"]
 

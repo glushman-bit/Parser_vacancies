@@ -13,7 +13,7 @@ class Config:
     от None, если переменная не задана в .env.
     """
 
-    DATABASE_NAME = os.getenv("DATABASE_NAME", "headhunter_drf")
+    POSTGRES_NAME = os.getenv("POSTGRES_NAME", "headhunter_drf")
     POSTGRES_HOST = os.getenv("POSTGRES_HOST", "localhost")
     POSTGRES_USER = os.getenv("POSTGRES_USER", "postgres")
     POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD", "")
