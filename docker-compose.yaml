@@ -1,7 +1,7 @@
 services:
   web:
     build: .
-    image: glushman/parser_vacancies:latest
+    image: glushman/parser_vacancies:${IMAGE_TAG}
     command: sh -c 'python manage.py migrate && python manage.py collectstatic --noinput && gunicorn config.wsgi:application --bind 0.0.0.0:8000'
     volumes:
       - static_volume:/app/staticfiles

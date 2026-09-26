@@ -41,6 +41,15 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /var/www/parser_vacancies
+            
+            IMAGE_TAG="${{ github.sha }}"
+            
+            if grep -q '^IMAGE_TAG=' .env; then
+              sed -i "s/^IMAGE_TAG=.*/IMAGE_TAG=${IMAGE_TAG}/" .env
+            else
+              echo "IMAGE_TAG=${IMAGE_TAG}" >> .env
+            fi
+            
             docker compose pull web
             docker compose up -d --force-recreate web
             
