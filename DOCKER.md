@@ -106,9 +106,9 @@ Health status: unhealthy
 Web is unhealthy
 ```
 → выводим последние логи web и:
-
+```
 exit 1
-
+```
 GitHub Actions получает ненулевой код и показывает deployment как failed.
 
 Почему Nginx создаём после healthy
@@ -187,3 +187,38 @@ POSTGRES_NAME=headhunter_drf
 ALLOWED_HOSTS=...
 ```
 останутся нетронутыми.
+
+=======================================================
+
+Сейчас уберём из healthcheck жёстко заданное имя контейнера parser_vacancies-web-1.
+Получаем ID контейнера через Docker Compose
+
+Заменяем в Docker.yml на этот фрагмент:
+```
+WEB_CONTAINER=$(docker compose ps -q web)
+
+for i in {1..30}; do
+  STATUS=$(docker inspect --format='{{.State.Health.Status}}' "$WEB_CONTAINER" 2>/dev/null || true)
+  
+  echo "Health status: $STATUS"
+```
+
+Что изменилось?
+
+Раньше мы обращались к контейнеру по имени:
+```
+parser_vacancies-web-1
+```
+Теперь:
+```
+WEB_CONTAINER=$(docker compose ps -q web)
+```
+получает ID контейнера, который Compose связывает с сервисом web.
+
+А эта команда:
+```
+docker inspect --format='{{.State.Health.Status}}' "$WEB_CONTAINER"
+```
+проверяет его состояние.
+
+

@@ -62,8 +62,10 @@ jobs:
             
             echo "Waiting for web container..."
             
+            WEB_CONTAINER=$(docker compose ps -q web)
+            
             for i in {1..30}; do
-              STATUS=$(docker inspect --format='{{.State.Health.Status}}' parser_vacancies-web-1 2>/dev/null || true)
+              STATUS=$(docker inspect --format='{{.State.Health.Status}}' "$WEB_CONTAINER" 2>/dev/null || true)
               
               echo "Health status: $STATUS"
             
