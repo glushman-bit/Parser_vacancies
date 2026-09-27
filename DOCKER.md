@@ -221,4 +221,42 @@ docker inspect --format='{{.State.Health.Status}}' "$WEB_CONTAINER"
 ```
 проверяет его состояние.
 
+=================================================
+
+Добавляем номер сборки на страницу:
+пока только в Деплой
+
+Добавляем блок:
+```
+if grep -q '^BUILD_NUMBER=' .env; then
+  sed -i "s/^BUILD_NUMBER=.*/BUILD_NUMBER=${BUILD_NUMBER}/" .env
+else
+  echo "BUILD_NUMBER=${BUILD_NUMBER}" >> .env
+fi
+```
+
+В результате получится:
+```
+IMAGE_TAG="${{ github.event_name == 'workflow_dispatch' && inputs.image_tag || github.sha }}"
+
+BUILD_NUMBER="${{ github.run_number }}"
+
+if grep -q '^IMAGE_TAG=' .env; then
+  sed -i "s/^IMAGE_TAG=.*/IMAGE_TAG=${IMAGE_TAG}/" .env
+else
+  echo "IMAGE_TAG=${IMAGE_TAG}" >> .env
+fi
+
+if grep -q '^BUILD_NUMBER=' .env; then
+  sed -i "s/^BUILD_NUMBER=.*/BUILD_NUMBER=${BUILD_NUMBER}/" .env
+else
+  echo "BUILD_NUMBER=${BUILD_NUMBER}" >> .env
+fi
+```
+
+В .env добавляем строку:
+```
+BUILD_NUMBER=
+```
+
 
