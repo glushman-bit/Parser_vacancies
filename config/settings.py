@@ -25,6 +25,8 @@ if not SECRET_KEY:
 
 DEBUG = os.getenv("DEBUG", "True").lower() in {"true", "1", "yes"}
 
+BUILD_NUMBER = os.getenv("BUILD_NUMBER", "dev")
+
 ALLOWED_HOSTS = [
                     h.strip()
                     for h in os.getenv("ALLOWED_HOSTS", "*").split(",")
@@ -64,6 +66,9 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.debug",
+                "django.template.context_processors.media",
+                "hh_parser.context_processors.build_number",
             ],
         },
     },
